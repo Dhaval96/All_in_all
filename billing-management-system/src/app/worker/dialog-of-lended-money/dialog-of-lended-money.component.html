@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Lended money</h1>
+<div mat-dialog-content>
+
+    <form>
+        <div fxLayout="column">
+            <div fxLayout="row">
+
+                <form (ngSubmit)="onformSubmit(f)" #f="ngForm">
+                    <mat-form-field>
+                        <input type="number" matInput ngModel name="amount" required
+                            placeholder="amount">
+                    </mat-form-field>
+                    <button mat-icon-button [disabled]="f.invalid" type="submit">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </form>
+
+            </div>
+
+            <div>
+                <span>
+                    Total lended amount: {{total}}
+                </span>
+            </div>
+        </div>
+    </form>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="total" cdkFocusInitial>Done</button>
+</div>

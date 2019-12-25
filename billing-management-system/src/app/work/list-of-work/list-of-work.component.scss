@@ -1,0 +1,26 @@
+section{
+    display: block;
+    margin: 10px;
+}
+
+.panel{
+    margin: 5px;
+}
+
+.actions{
+transform: scale(.9);
+display: flex;
+margin: -15px;
+}
+
+.actions button mat-icon{
+    font-size: 20px;
+}
+
+.mat-custom-cell{
+    //border: 1px solid black;
+}
+
+.icon{
+    padding: 15px;
+}

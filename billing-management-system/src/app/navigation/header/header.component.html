@@ -1,0 +1,41 @@
+<mat-toolbar>
+    <!-- <mat-toolbar-row> -->
+    <button fxHide.gt-xs mat-icon-button type="button" (click)="onclick();">
+        <mat-icon>menu</mat-icon>
+
+    </button>
+
+    <span class="logo">
+        <mat-icon>museum</mat-icon>
+    </span>
+
+    <div fxFlex fxHide.xs fxLayout="row" fxLayoutAlign="flex-start">
+        <ul fxLayout fxLayoutGap="20px" class="navigation-menu">
+
+            <li *ngIf="isAuth"><a routerLink="/dashboard">Dashboard</a></li>
+            <li *ngIf="isAuth"><a routerLink="/work">Work</a></li>
+            <li *ngIf="isAuth"><a routerLink="/worker">Worker</a></li>
+
+            <li *ngIf="isAuth && currentUser.role ==='admin'"><a routerLink="/user">Users</a></li>
+            <!-- <li><a >User</a></li> -->
+            <!-- <li *ngIf="!isAuth"><a routerLink="/login">Signin</a></li> -->
+            <li *ngIf="isAuth" (click)="onLogout();"><a>Logout</a></li>
+            <!-- <li *ngIf="!isAuth"><a routerLink="/signup">Signup</a></li> -->
+        </ul>
+    </div>
+
+
+
+    <div fxHide.xs *ngIf="isAuth" class="user">
+        <span>
+            <!-- <mat-icon class="profile-image" *ngIf="!imagePath">account_circle</mat-icon> -->
+            <!-- <img class="profile-image" [src]="imagePath" alt="profile-image" *ngIf="imagePath"> -->
+            <img [src]="currentUser.profile" [matTooltip]="currentUser.firstname + ' ' + currentUser.lastname "
+                alt="profile" *ngIf="currentUser?.profile" class="profile-image">
+        </span>
+        <!-- <span class="username">Dhaval M Patel</span> -->
+    </div>
+
+    <!-- </mat-toolbar-row> -->
+
+</mat-toolbar>

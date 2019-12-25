@@ -1,0 +1,97 @@
+<section class="worker-container">
+
+    <form (ngSubmit)="onSubmit();" [formGroup]="workerForm" fxFlex fxLayout="column" fxLayoutAlign="center center"
+        fxLayoutGap="15px">
+
+
+        <div fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field>
+                <input type="text" placeholder="Worker name" matInput formControlName="workerName">
+                <mat-hint>Full name of the worker.</mat-hint>
+                <mat-error>Please enter worker name.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" placeholder="Worker type" matInput formControlName="workerType">
+                <mat-hint>Role of the worker.</mat-hint>
+                <mat-error>Should enter the worker role.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="w-370">
+            <mat-label>Worker Address</mat-label>
+            <textarea name="workeraddress" id="address" matInput cols="20" formControlName="workerAddress"></textarea>
+            <mat-hint>Verified address. </mat-hint>
+            <mat-error>Please provide fully verified address</mat-error>
+        </mat-form-field>
+
+
+
+        <div fxLayout="row" fxLayoutGap="10px">
+            <mat-radio-group class="gender" fxLayoutGap="10px" formControlName="gender">
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+                <!-- <mat-error>Please provide gender type</mat-error> -->
+            </mat-radio-group>
+
+
+            <mat-form-field>
+                <input type="number" matInput placeholder="Phone number" formControlName="phonenumber">
+
+
+                <mat-hint>10 digits valid phone number. </mat-hint>
+                <mat-error
+                    *ngIf="workerForm.get('phonenumber').errors !== null  && workerForm.get('phonenumber')?.errors['required']">
+                    Please enter the
+                    worker valid
+                    phone number</mat-error>
+                <mat-error
+                    *ngIf=" workerForm.get('phonenumber').errors !== null && !workerForm.get('phonenumber')?.errors['required']">
+                    Should be of 10 digits
+                </mat-error>
+
+            </mat-form-field>
+        </div>
+
+
+        <div fxLayout="row" fxLayoutGap="10px" fxLayout="center">
+            <mat-form-field>
+                <input type="number" formControlName="wage" matInput placeholder="Wage">
+                <mat-hint>Worker pay per day.</mat-hint>
+
+
+                <mat-error
+                    *ngIf=" workerForm.get('wage').errors !== null && !workerForm.get('wage').errors['required']">
+                    Please enter the pay per day of roughly 3 digits.</mat-error>
+                <mat-error *ngIf=" workerForm.get('wage').errors !== null && workerForm.get('wage').errors['required']">
+                    Please enter the pay per day.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="number" formControlName="lended_money" matInput placeholder="Lended Money">
+                <mat-hint>When worker take advance money.</mat-hint>
+            </mat-form-field>
+
+        </div>
+
+        <mat-form-field class="w-370">
+            <input matInput formControlName="birthdate" [matDatepicker]="picker" [max]="maxDate" [min]="'22'"
+                placeholder="Choose a birthdate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>Please provide worker valid birthdate.</mat-error>
+        </mat-form-field>
+
+
+
+
+        <mat-form-field class="w-370">
+            <textarea name="extra_notes" id="" formControlName="note" matInput placeholder="extra note."></textarea>
+            <mat-hint>extra information regarding the worker.</mat-hint>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" color="primary" [disabled]="workerForm.invalid">Save</button>
+    </form>
+
+
+</section>

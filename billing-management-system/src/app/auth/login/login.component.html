@@ -1,0 +1,20 @@
+<section class="login-container">
+
+    <form (ngSubmit)="onLogin(f);" #f="ngForm" fxFlex fxLayout="column" fxLayoutAlign="center center"
+        fxLayoutGap="15px">
+        <mat-form-field>
+            <input type="text" ngModel name="username" placeholder="Username" required matInput>
+            <mat-error>Username required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="password" ngModel name="password" placeholder="password" required matInput>
+            <mat-error>Password required</mat-error>
+        </mat-form-field>
+        <div fxLayoutGap="20px">
+            <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Login</button>
+            <button type="button" mat-raised-button color="accent" routerLink="/signup">Registation</button>
+        </div>
+    </form>
+
+</section>

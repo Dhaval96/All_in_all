@@ -1,0 +1,39 @@
+<section fxLayoutAlign="center center" fxlayout="column">
+    <mat-card class="card-1" fxLayoutAlign="center">
+        <mat-card-header>
+            <mat-card-title>Work Completed</mat-card-title>
+            <mat-card-title style="text-align: center; font-size: 30px;">{{countWork |number}}</mat-card-title>
+
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </mat-card-header>
+        <mat-card-content>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card-1" fxLayoutAlign="center ">
+        <mat-card-header>
+            <mat-card-title>Total Earn</mat-card-title>
+            <mat-card-title style="text-align: center; font-size: 30px;">&#8377; {{totalEarn | number}}</mat-card-title>
+
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </mat-card-header>
+
+    </mat-card>
+</section>
+
+<mat-card>
+
+    <mat-card-content>
+        <div >
+            <div>
+                <div style="display: block">
+                    <canvas baseChart [datasets]="radarChartData" [options]="radarChartOptions"
+                        [labels]="radarChartLabels" [chartType]="radarChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+
+
+</mat-card>

@@ -1,0 +1,22 @@
+<section>
+    <div>
+
+        <button type="button" mat-icon-button (click)="file.click();">
+            <mat-icon>file_upload</mat-icon>
+        </button>
+        <span *ngIf="!flag">No file uploaded.</span>
+        <span *ngIf="flag">{{selectedFile.name}} &nbsp;uploaded successfully({{size | number}} mb)
+        </span>
+        <span *ngIf="!flag && selectedFile " style="color:crimson">&nbsp; 2mb max size</span>
+
+
+
+        <input type="file" id="fileUpload" [src]="'src/assets/user.png'" #file (change)="onClick($event)" accept="image" name="fileUpload"
+            style="display: none;" />
+        <!-- multiple="multiple" -->
+        <!-- accept="{{accept}}" -->
+    </div>
+
+    <!-- <img [src]="previewURL" alt="image" *ngIf="previewURL" class="previewImage"> -->
+
+</section>

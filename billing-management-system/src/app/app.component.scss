@@ -1,0 +1,61 @@
+// -----------------------------------
+mat-drawer-container, mat-drawer,mat-drawer-content{
+    height: 100%;
+    overflow: hidden;
+}
+
+mat-drawer-content{
+    width: 100%;
+}
+
+mat-drawer{
+    width: 250px;
+}
+
+li{
+    list-style: none;
+}
+
+a:hover,a:active {
+    color: lightgrey;
+}
+// --------------------------------------
+
+/* ------------------------------ */
+
+.profile{
+     display: block;
+    // width: 60%;
+     height: 200px;
+    // background-color: red;
+    border-bottom: 1px solid lightgray;
+    background-image:  linear-gradient(to right,#00000042,#000000b8), url('https://cdn.hipwallpaper.com/m/96/13/0QpA6f.jpeg'),;
+    background-size: cover;
+    background-position: center center;
+}
+
+.profile-image{
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: black;
+    margin: 4px;
+}
+.profile-info{
+    color: lightgrey;
+    padding: 5px;
+    font-size: 14px;
+}
+.header-menu{
+
+
+    // background-color: rgba(black, black, black, 0.3);
+}
+
+mat-nav-list{
+    height: 100%;
+}
+
+
+//---------------------------------

@@ -1,0 +1,53 @@
+<div class="main">
+  <div class="primary scrollbar">
+    <div id="accordion">
+      <div *ngFor="let module of modules; let i = index">
+        <div class="card">
+          <div class="">
+            <div class="component" id="{{i}}" data-toggle="collapse" [attr.data-target]="'#collapseOne' + i"
+                 name="modulename"
+                 (click)="onAniminate();"> {{module.moduleName}}</div>
+          </div>
+          <div [id]="'collapseOne' + i" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              <div
+                cdkDropList
+                #todoList="cdkDropList"
+                [cdkDropListData]="module.element"
+                [cdkDropListConnectedTo]="[doneList]"
+                class="example-list "
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of module.element;"
+                     cdkDrag> {{item}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="secondary scrollbar">
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="dragModule"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="p-2" *ngFor="let item of dragModule let i= index"
+           cdkDrag>
+        <div class="btn-group btn-group-sm pull-right">
+          <button type="button" class="btn btn-primary" (click)="openDialog();"><i class="fa fa-minus-square"
+                                                                                   aria-hidden="true"></i></button>
+          <button type="button" class="btn btn-primary" (click)="onDelete(i);"><i class="fa fa-times"
+                                                                                  aria-hidden="true"></i></button>
+        </div>
+        <app-view-form [setElements]="item"></app-view-form>
+        <!--        <p appDomManupilateDirective [innerHTML]="item | converterPipe"></p></div>-->
+      </div>
+    </div>
+  </div>
+

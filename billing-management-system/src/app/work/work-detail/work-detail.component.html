@@ -1,0 +1,68 @@
+<button fxLayoutAlign="flex-end" matTooltip="export as pdf" appExportAsPdf mat-icon-button type="button">
+    <mat-icon>insert_drive_file</mat-icon>
+</button>
+
+<section class="container" id="id">
+
+    <h1 fxLayoutAlign="center center">Work Detail</h1>
+
+    <!-- <mat-list> -->
+
+
+    <div fxLayoutAlign="center center">
+        <!-- <mat-list-item> -->
+        <div class="element">
+            <span>Workname:</span>
+            <span>&nbsp; {{_data.workName}}</span>
+        </div>
+        <!-- </mat-list-item> -->
+        <!-- <mat-list-item> -->
+
+        <div class="element">
+            <span>Address:</span>
+            <span> &nbsp;{{_data.address}}</span>
+        </div>
+
+        <!-- </mat-list-item> -->
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <!-- <mat-list-item> -->
+        <div class="element">
+            <span>Work start on</span>
+            <span> &nbsp;{{_data.createddate | date:'short'}}</span>
+        </div>
+
+        <!-- </mat-list-item>
+            <mat-list-item> -->
+        <div class="element">
+            <span>Number of workers:</span>
+            <span> &nbsp;{{worker.length}}</span>
+        </div>
+
+        <!-- </mat-list-item> -->
+    </div>
+
+    <div fxLayoutAlign="center center">
+
+        <div class="element">
+            <span>Discription:</span>
+            <span *ngIf="!_data.discription"> &nbsp;no discription available.</span>
+            <span *ngIf="_data.discription"> &nbsp;{{_data.discription}}</span>
+        </div>
+        <!-- <mat-list-item>
+                        </mat-list-item> -->
+    </div>
+
+    <div>
+        <mat-divider></mat-divider>
+
+        <h1 fxLayoutAlign="center center" *ngIf="worker">Worker Detail</h1>
+        <div *ngFor="let workerList of worker; let i=index">
+            <span class="worker_no">Worker {{i + 1}}</span>
+            <app-worker-detail [worker]="workerList"></app-worker-detail>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+    <!-- </mat-list> -->
+</section>

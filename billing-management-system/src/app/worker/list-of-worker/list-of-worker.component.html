@@ -1,0 +1,114 @@
+<section class="panel">
+    <div fxLayout="row" fxLayoutGap="8px">
+
+
+        <mat-form-field fxFlex.xs="30%">
+            <mat-label>Select Work</mat-label>
+            <!-- [compareWith]="compareWithfn" #select -->
+            <mat-select [(ngModel)]="workId" (ngModelChange)="onClick(select.value)" #select>
+                <mat-option *ngFor="let work of works" [value]="work.id">
+                    {{work.workName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field fxFlex.xs="30%">
+            <input type="text" placeholder="Filter" (keyup)="applyFilter($event.target.value)" matInput>
+        </mat-form-field>
+        <div fxFlex fxLayoutAlign="flex-end" class="action" [fxHide]="!flagOfAddUser">
+            <button type="button" mat-icon-button matTooltip="Add worker" (click)="addWorker();">
+                <mat-icon>person_add</mat-icon>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Position Column -->
+
+    <!-- Name Column
+     <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Worker Name </mat-header-cell>
+            <mat-cell *matCellDef="let element; let i= index"> {{i+1 | number}} </mat-cell>
+        </ng-container> -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="workername">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Worker Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.workerName |titlecase}} </mat-cell>
+    </ng-container>
+
+    <!--  Weight Column
+    <ng-container matColumnDef="workeraddress">
+        <mat-header-cell *matHeaderCellDef mat-sort-header fxHide.xs> Address </mat-header-cell>
+        <mat-cell *matCellDef="let element" fxHide.xs> {{element.workerAddress}} </mat-cell>
+    </ng-container>
+ -->
+    <!-- Weight Column -->
+    <ng-container matColumnDef="workertype">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Worker Type </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.workerType | titlecase}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="phonenumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile no. </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.phonenumber}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="wage">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Wage </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.wage}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="lended_money">
+        <mat-header-cell *matHeaderCellDef mat-sort-header fxHide.xs> Lended Money </mat-header-cell>
+        <mat-cell *matCellDef="let element" fxHide.xs> {{element.lended_money}} </mat-cell>
+    </ng-container>
+
+
+
+    <!-- Symbol Column -->
+    <!-- <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header fxHide.xs> Date </mat-header-cell>
+        <mat-cell *matCellDef="let element" fxHide.xs> {{element.crea | date:'short'}} </mat-cell>
+    </ng-container> -->
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+            <mat-slide-toggle class="example-margin" #sidetoggle
+                (change)="onToggleChange(select.value, element,sidetoggle._checked);" [checked]="element.status">
+            </mat-slide-toggle>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+            <button *ngIf="element.status" mat-icon-button (click)="onEdit(element);" matTooltip="Edit worker">
+                <mat-icon>edit</mat-icon>
+            </button>
+
+            <button *ngIf="element.status" mat-icon-button tooltip matTooltip="lended money"
+                (click)="onOpenDialog(element);">
+                <mat-icon>attach_money</mat-icon>
+            </button>
+            <button *ngIf="element.status" mat-icon-button tooltip matTooltip="Worker details"
+                (click)="openBotternSheet(element.id);">
+                <mat-icon>drag_indicator</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSize]="4" [pageSizeOptions]="[5,10,20,30]">
+</mat-paginator>

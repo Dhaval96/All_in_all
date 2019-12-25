@@ -1,0 +1,47 @@
+
+
+
+// mat-card-content{
+//     max-width: 80%;
+//     margin: auto;
+// }
+
+mat-card{
+    // margin-top: 10px    ;
+     max-width: 70%;
+    // margin: 30px;
+     //display: inline-block;
+ 
+     margin: auto;
+ 
+ }
+
+@media  screen and (min-width: 600px) {
+    .card-1{
+        height: 50%;
+        width: 50%;
+        margin: 20px;
+    }
+    
+   }
+
+@media  screen and (max-width: 600px) {
+    mat-card{
+        margin-top: 5px    ;
+        max-width: 85%;
+        // max-height: 85%;
+        
+       // margin: 30px;
+       // display: inline-block;
+
+        margin: auto;
+    }
+
+    .card-1{
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    
+    
+
+   }

@@ -1,0 +1,12 @@
+<app-spinner></app-spinner>
+<mat-drawer-container class="example-container">
+  <mat-drawer fxFlex.xs="50%" fxHide.gt-xs mode="side" #sidenav>
+    <app-sidenav (close)="sidenav.close();"></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header (sidenav)="sidenav.toggle();"></app-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>

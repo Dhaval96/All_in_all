@@ -1,0 +1,34 @@
+<!-- workname;
+    area
+    status -->
+<section class="work-container">
+    <form (ngSubmit)="onSubmit(f);" #f="ngForm" fxFlex fxLayout="column" fxLayoutAlign="center center"
+        fxLayoutGap="15px">
+        <mat-form-field>
+            <input type="text" placeholder="Work name" matInput [ngModel]="workerName" name="workname" required>
+            <mat-error>Please enter work name.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="number" placeholder="Total cost" matInput [ngModel]="amount" pattern="^\s*\d+$"
+                name="amount" required>
+            <mat-error>Please enter total amount of the work.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea name="area" id="area" matInput placeholder="Area" [ngModel]="area" required></textarea>
+            <mat-hint>Write an area where work will be going on.</mat-hint>
+            <mat-error>Please enter addres of your work</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea name="discription" id="discription" matInput [ngModel]="discription"
+                placeholder="Discription"></textarea>
+            <mat-hint>Write the discription of a work. </mat-hint>
+        </mat-form-field>
+
+
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Save</button>
+    </form>
+
+</section>

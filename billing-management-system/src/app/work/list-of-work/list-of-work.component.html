@@ -1,0 +1,89 @@
+<section fxLayout="row">
+
+    <mat-form-field fxFlex.xs="30%">
+        <input type="text" placeholder="Filter" (keyup)="applyFilter($event.target.value)" matInput>
+    </mat-form-field>
+    <div fxFlex fxLayoutAlign="flex-end" class="icon">
+        <button mat-icon-button matTooltip="Add work"  TooltipPosition="top" (click)=" flag = !flag"
+            routerLink="/work/addWork">
+            <mat-icon>person_add</mat-icon>
+        </button>
+    </div>
+</section>
+
+
+
+<!-- <section fxLayoutAlign="flex-end" class="panel">
+
+</section> -->
+
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Position Column -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="workname">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Work Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.workName}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header fxHide.xs> Date </mat-header-cell>
+        <mat-cell *matCellDef="let element" fxHide.xs> {{element.createddate | date:'short'}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <mat-slide-toggle class="example-margin" #sidetoggle (change)="onToggleChange(element,sidetoggle._checked);"
+                [checked]="element.status">
+            </mat-slide-toggle>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> action </mat-header-cell>
+        <mat-cell class="mat-custom-cell" *matCellDef="let element">
+
+            <button *ngIf="element.status" mat-icon-button
+                [matTooltip]="element.isCompleted ? 'Completed':'Work Completed ?'" (click)="onWorkCompleted(element);"
+                TooltipPosition="right">
+                <mat-icon [color]="element.isCompleted ?'accent':''">done</mat-icon>
+            </button>
+            <button *ngIf="element.status" mat-icon-button [matMenuTriggerFor]="menu" matTooltip="more actions"
+                aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-icon-button matTooltip="Edit" (click)="onEdit(element.id)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+
+                <button mat-icon-button matTooltip="Worker list" (click)="navigateToWorker(element.id);"
+                    TooltipPosition="right">
+                    <mat-icon>chevron_right</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Worker list" (click)="onWorkDetails(element);"
+                    TooltipPosition="right">
+                    <mat-icon>drag_indicator</mat-icon>
+                </button>
+            </mat-menu>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+</mat-table>
+
+<mat-paginator [pageSize]="4" [pageSizeOptions]="[5,10,20,30]">
+</mat-paginator>

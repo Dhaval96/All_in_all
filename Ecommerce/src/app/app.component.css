@@ -1,0 +1,37 @@
+/*Custom scroll bar*/
+/* width */
+.scrollbar::-webkit-scrollbar {
+  /*width: 10px;*/
+  /*border-radius: 20%;*/
+
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+/* Track */
+.scrollbar::-webkit-scrollbar-track {
+  /*background: #fff;*/
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+/* Handle */
+.scrollbar::-webkit-scrollbar-thumb {
+  /*background: #888;*/
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #b2bec3;
+}
+
+/* Handle on hover */
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*Custom scroll bar*/
+
+/*collapse Expand*/
+
+
+/*collapse Expand*/

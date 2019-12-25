@@ -1,0 +1,131 @@
+<!--<nav class="navbar bg-dark col-xl-2">
+  <ul class="navbar-nav">
+    <li class="nav-item  ">
+      <button class="nav-link" data-toggle="collapse" data-target="#demo">Collapsible</button>
+      <div id="demo" class="collapse">
+        Lorem ipsum dolor text....
+      </div>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="#">Link 2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 3</a>
+    </li>
+  </ul>
+</nav>-->
+<!--<nav class="navbar bg-dark full ">
+  <ul class="navbar-nav">
+    <li class="nav-item  ">
+      <button class="nav-link" data-toggle="collapse" data-target="#demo">Collapsible</button>
+      <div id="demo" class="collapse">
+        Lorem ipsum dolor text....
+      </div>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="#">Link 2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 3</a>
+    </li>
+  </ul>
+</nav>
+-->
+
+<!--<div class="full bg-dark">
+<div class="row">
+<div class="col-xl-12 text-right">
+
+</div>
+</div>
+</div>
+-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <button class="btn btn-dark" (click)="collapsePanel($event)"><i class="navbar-toggler-icon"></i></button>
+
+
+</nav>
+
+<!-- <div >
+  &lt;!&ndash; <button [hidden]="toggle" class="btn btn-dark"> <i class="fa fa-times-circle-o"></i> </button>&ndash;&gt;
+ </div >-->
+
+  <div #nav class="scrollbar">
+  <div [hidden]="!toggle">
+    <a class="closebtn" (click)="collapsePanel($event)">&times;</a>
+    <!--     <div class="clearfix"></div>-->
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="move-logo">logo</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-xl-12 text-center mt-5">
+        Search bar
+      </div>
+    </div>
+    <hr>
+    <br>
+
+
+    <ng-container>
+      <div class="moduleClass" *ngFor="let module  of mainNavigationModel;  let i=index">
+
+        <div [id]="'heading' +i">
+          <span> <i [class]="module.icon + ' icon-25 '" aria-hidden="true"></i></span>
+          <span class="text-center font-1vw">{{module.moduleName}}</span>
+          <span class="movie-icon" data-toggle="collapse" [attr.data-target]="'#id' +i" aria-expanded="false"
+                aria-controls="collapseOne">
+                  <span (click)="toggleFun(module)" [hidden]="module.toggle_Icon"><i class="fa fa-caret-down ml-5 "
+                                                                                     aria-hidden="true"></i></span>
+                <span (click)="toggleFun(module)" [hidden]="!module.toggle_Icon"> <i class="fa fa-caret-up ml-5"
+                                                                                     aria-hidden="true"></i></span>
+          </span>
+        </div>
+        <div [id]="'id' +i" class="collapse" [attr.aria-labelledby]="'heading' +i">
+          <ng-template ngFor let-submodule [ngForOf]="module.subModules" let-i="index">
+
+            <div class="subModule">
+              <span> <i [class]="submodule.icon + ' icon-25 '" aria-hidden="true"></i></span>
+              <!--              ""-->
+              <span [routerLink]="submodule?.routerLink "> {{submodule.subModule}}</span>
+            </div>
+          </ng-template>
+
+        </div>
+      </div>
+
+
+    </ng-container>
+
+
+  </div>
+
+
+  <!--<a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>-->
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+<app-toaster></app-toaster>
+
+<button class="btn btn-primary" (click)="show_toaster()">show toaster</button>
+
+
+<app-panel [backgroundBlack]="false">Dhaval Patel!
+  <button class="btn btn-primary" (click)="close()">hide toaster</button>
+</app-panel>
+
+
+
+
+
+
+

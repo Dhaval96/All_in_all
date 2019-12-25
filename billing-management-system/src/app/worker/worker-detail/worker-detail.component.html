@@ -1,0 +1,104 @@
+<section class="container">
+    <h1 fxLayoutAlign="center center" *ngIf="flag">Worker Detail</h1>
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <!-- <mat-list-item> -->
+        <div class="element">
+            <span>Worker name:</span>
+            <span> &nbsp; {{worker?.workerName}}</span>
+        </div>
+
+        <!-- </mat-list-item>
+                    <mat-list-item> -->
+        <div class="element">
+            <span>Worker addresss:</span>
+            <span> &nbsp; {{worker?.workerAddress}}</span>
+        </div>
+
+        <!-- </mat-list-item> -->
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+
+        <div class="element">
+            <span>Worker Type:</span>
+            <span> &nbsp; {{worker?.workerType}}</span>
+        </div>
+        <!-- <mat-list-item> -->
+
+        <!-- </mat-list-item>
+                    <mat-list-item> -->
+        <div class="element">
+            <span>Gender:</span>
+            <span>&nbsp; {{worker?.gender}}</span>
+        </div>
+
+        <!-- </mat-list-item> -->
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <!-- <mat-list-item> -->
+        <div class="element">
+            <span>Phone no:</span>
+            <span> &nbsp; {{worker?.phonenumber}}</span>
+        </div>
+
+        <!-- </mat-list-item>
+                    <mat-list-item> -->
+
+        <div class="element">
+            <span>Note:</span>
+            <span> &nbsp;{{worker?.note}}</span>
+        </div>
+
+        <!-- </mat-list-item> -->
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <!-- <mat-list-item> -->
+        <div class="element">
+            <span>Peload per day:</span>
+            <span>&nbsp; {{worker?.wage}} </span>
+        </div>
+
+        <!-- </mat-list-item> -->
+
+        <!-- <mat-list-item> -->
+        <div class="element">
+            <span>Already pay:</span>
+            <span> &nbsp; {{worker?.lended_money}}</span>
+        </div>
+
+        <!-- </mat-list-item> -->
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <!-- <mat-list-item> -->
+        <div class="element">
+            <span>Birthdate:</span>
+            <span>&nbsp; {{worker?.birthdate | date: 'fullDate'}} </span>
+        </div>
+
+        <!-- </mat-list-item> -->
+
+        <!-- <mat-list-item> -->
+        <div class="element">
+
+            <span>Joining Date:</span>
+            <span>&nbsp; {{worker?.createdDate | date: 'fullDate'}}</span>
+        </div>
+
+        <!-- </mat-list-item> -->
+    </div>
+</section>
+
+
+<!-- <mat-list> -->
+
+
+
+
+<!-- </mat-list> -->

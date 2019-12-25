@@ -1,0 +1,49 @@
+<section fxLayout="column" fxLayoutAlign="center center" class="profile">
+    <span class="profile-image" *ngIf="!user?.profile">
+    </span>
+
+    <img [src]="user.profile" alt="profile" *ngIf="user?.profile" class="profile-image">
+    <span class="profile-info">{{user?.firstname}}&nbsp; {{user?.lastname}} </span>
+</section>
+<mat-nav-list>
+    <a *ngIf="isAuth" mat-list-item routerLink="/dashboard" (click)="onclose();">
+        <mat-icon>dashboard</mat-icon>
+        <span> &nbsp; Dashboard</span>
+    </a>
+    <a *ngIf="isAuth" mat-list-item routerLink="/work" (click)="onclose();">
+        <mat-icon>work</mat-icon>
+        <span> &nbsp; Work</span>
+    </a>
+    <a *ngIf="isAuth" mat-list-item routerLink="worker" (click)="onclose();">
+
+        <mat-icon>supervisor_account</mat-icon>
+        <span> &nbsp; Worker</span>
+
+    </a>
+
+    <a mat-list-item  *ngIf="isAuth && user.role ==='admin'" (click)="onclose();" routerLink="/user">
+        
+        
+        <mat-icon>person</mat-icon>
+        <span> &nbsp; Users</span>
+        </a>
+    <!-- <a mat-list-item (click)="onclose();"> User</a> -->
+    <!-- <li><a>User</a></li> -->
+    <a *ngIf="isAuth" mat-list-item (click)="onLogout();">
+
+        <mat-icon>keyboard_return</mat-icon>
+        <span> &nbsp; Logout</span>
+    </a>
+    <a *ngIf="!isAuth" mat-list-item routerLink="/login" (click)="onclose();">
+
+
+        <mat-icon>keyboard_tab</mat-icon>
+        <span> &nbsp; Login</span>
+    </a>
+    <a *ngIf="!isAuth" mat-list-item routerLink="/signup" (click)="onclose();">
+
+        <mat-icon>how_to_reg</mat-icon>
+        <span> &nbsp; Signup</span>
+    </a>
+
+</mat-nav-list>

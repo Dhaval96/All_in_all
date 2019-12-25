@@ -1,0 +1,154 @@
+<div><h2 mat-dialog-title>Component Name</h2></div>
+<mat-dialog-content class="mat-typography scrollbar  overflow-x">
+  <div class="config">
+
+    <nav class="navbar navbar-expand-sm bg-light">
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-display" role="tab"
+           aria-controls="nav-home" aria-selected="true">Display</a>
+        <a class="nav-item nav-link" id="nav-data-tab" data-toggle="tab" href="#nav-data" role="tab"
+           aria-controls="nav-profile" aria-selected="false">Data</a>
+        <a class="nav-item nav-link" id="nav-validation-tab" data-toggle="tab" href="#nav-validation" role="tab"
+           aria-controls="nav-contact" aria-selected="false">Validation</a>
+        <a class="nav-item nav-link" id="nav-api-tab" data-toggle="tab" href="#nav-api" role="tab"
+           aria-controls="nav-contact" aria-selected="false">API</a>
+        <a class="nav-item nav-link" id="nav-layout-tab" data-toggle="tab" href="#nav-layout" role="tab"
+           aria-controls="nav-contact" aria-selected="false">Layout</a>
+        <a class="nav-item nav-link" id="nav-condition-tab" data-toggle="tab" href="#nav-condition" role="tab"
+           aria-controls="nav-contact" aria-selected="false">condition</a>
+      </div>
+    </nav>
+
+
+    <div class="tab-content scrollbar">
+      <div class="tab-pane container active" id="nav-display">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="label">Label</label>
+
+              <input type="text" id="label" placeholder="Label name" name="display"
+                     [(ngModel)]="display['label']"
+                     class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="placeholder">Placeholder</label>
+              <input type="text" id="placeholder" placeholder="Placeholder name" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="discription">Discription</label>
+              <input type="text" id="discription" placeholder="Discription" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="toottip">Tooltip</label>
+              <input type="text" id="toottip" placeholder="Tooltip" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="errorLable">Error label</label>
+              <input type="text" id="errorLable" placeholder="Error label" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="inputMask">InputMask</label>
+              <input type="text" id="inputMask" placeholder="InputMask" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="prefix">Prefix</label>
+              <input type="text" id="prefix" placeholder="Prefix" class="form-control">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="suffix">Suffix</label>
+              <input type="text" id="suffix" placeholder="Suffix" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="css">Custom CSS Class </label>
+              <input type="text" id="css" placeholder="Custom CSS Class" class="form-control">
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <!--        <div class="tab-pane container fade" id="nav-data">.ascas.</div>-->
+      <!--        <div class="tab-pane container fade" id="nav-validation">.ascasc..</div>-->
+
+      <!--        <div class="tab-pane container active" id="nav-api">ascasc</div>-->
+      <!--        <div class="tab-pane container fade" id="nav-layoit">.ascas.</div>-->
+      <!--        <div class="tab-pane container fade" id="nav-condition">.ascasc..</div>-->
+    </div>
+
+  </div>
+  <div class="preview">
+    preview
+  </div>
+</mat-dialog-content>
+
+
+<!--  <mat-dialog-actions align="end">-->
+<!--    <button mat-button mat-dialog-close>Cancel</button>-->
+<!--    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>-->
+<!--  </mat-dialog-actions>-->
+
+
+<!--<mat-dialog-content class="mat-typography">-->
+
+
+<!--&lt;!&ndash;  <nav class="navbar navbar-expand-sm bg-light">&ndash;&gt;-->
+
+<!--&lt;!&ndash;    &lt;!&ndash; Links &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <ul class="navbar-nav">&ndash;&gt;-->
+<!--&lt;!&ndash;      <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link" href="#">Link 1</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link" href="#">Link 2</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="nav-link" href="#">Link 3</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;    </ul>&ndash;&gt;-->
+
+<!--&lt;!&ndash;  </nav>&ndash;&gt;-->
+<!--</mat-dialog-content>-->
+

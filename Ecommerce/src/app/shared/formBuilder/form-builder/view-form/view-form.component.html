@@ -1,0 +1,8 @@
+<div *ngIf="element.type ==='text'">
+<!--  {{element| json}}-->
+  <div class="form-group">
+    <label for="id_+ {{element.labelName}}">{{element.labelName}}</label>
+    <input type="text" class="form-control" [name]="element.labelName" id="id_+ {{element.labelName}}"
+           [(ngModel)]="element.value">
+  </div>
+</div>

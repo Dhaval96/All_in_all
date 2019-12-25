@@ -1,0 +1,62 @@
+li{
+    list-style: none;
+  
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover,a:active {
+    color: lightgrey;
+}
+// --------------------------------------
+
+.header-menu{
+
+
+   // background-color: rgba(black, black, black, 0.3);
+}
+
+mat-nav-list{
+   height: 100%;
+}
+
+
+.profile-image{
+   // border: 1px solid black;
+    /* height: 20px; */
+    display: inline-block;
+    width: 35px;
+    border-radius: 50px;
+    margin: 5px;
+    text-align: center;
+}
+
+
+.username{
+    vertical-align: top;
+    // margin-right: 30px;
+    font-size: 12px;
+
+}
+
+// img{
+//     display: block;
+//     width: 50px;
+//     margin-right: 60px;
+//     border-radius: 50px;
+// }
+
+.user{
+    // border: 1px solid white;
+    // border-radius: 20px;
+    // padding: 0px 10px;
+}
+
+.logo{
+    padding-top: 7px;
+    padding-left: 7px
+}
+//---------------------------------
